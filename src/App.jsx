@@ -1,7 +1,10 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom"
+// Pages
 import Homepage from "./pages/Home/Homepage";
 import Loginpage from "./pages/Login/Loginpage";
 import SignupPage from "./pages/Signup/SignupPage";
+// Context
+import UserProvider from "./contexts/user";
 
 const router = createBrowserRouter([
     {
@@ -19,7 +22,11 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-    return <RouterProvider router={router} />
+    return (
+      <UserProvider>
+        <RouterProvider router={router} />
+      </UserProvider>
+    )
 }
 
 export default App
